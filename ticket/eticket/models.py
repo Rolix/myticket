@@ -11,9 +11,9 @@ class Booking(models.Model):
 class Customer(models.Model):
 	fName = models.CharField(max_length=20)
 	sName = models.CharField(max_length=25)
-	phoneNum = IntegerField()
+	phoneNum = models.IntegerField()
 	ticketNum = models.ForeignKey(Booking)
-	def __unicode__(self)
+	def __unicode__(self):
 		pass
 
 class Company(models.Model):
