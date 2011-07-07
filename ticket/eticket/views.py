@@ -1,6 +1,6 @@
 from django.template import Context, loader
 from django.http import HttpResponse, HttpResponseRedirect
-from models import Route,Customer,Company,Ticket, 
+from models import Route,Customer,Company,Ticket
 from django.template import Context, loader
 from django.forms import ModelForm
 from django.views.decorators.csrf import csrf_exempt
@@ -11,10 +11,10 @@ def home(request):
 	return HttpResponse(t.render(c))
 
 
-#def site_list(request):
-	#t = loader.get_template('eticket/index.html')
-	#c = Context(dict())
-	#return HttpResponse(t.render(c))
+def site_list(request):
+	t = loader.get_template('eticket/index.html')
+	c = Context(dict())
+	return HttpResponse(t.render(c))
 
 #def booking _details(request):
 	#def route_detail(request):
