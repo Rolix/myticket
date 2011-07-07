@@ -5,12 +5,21 @@ class Booking(models.Model):
 	ticketType = models.CharField(max_length=30)
 	ticketQuantity = models.IntegerField()
 	#ticketNum = models.IntegerField()
-	seatNum = models.IntegerField()
 	def __unicode__(self):
 		return self.ticketType
 
+class Company(models.Model):
+	name = models.CharField(max_length=50)
+	phoneNum = models.IntegerField()
+	address = models.CharField(max_length=255)
+	email = models.EmailField()
+	#ticketNum = models.ForeignKey(Ticket)
+	def __unicode__(self):
+		return self.name
+
 class Ticket(models.Model):
 	ticketNum = models.IntegerField()
+	seatNum = models.IntegerField()
 	booking = models.ForeignKey(Booking)	
 
 class TicketInline(admin.TabularInline):
@@ -27,14 +36,10 @@ class Customer(models.Model):
 	def __unicode__(self):
 		pass
 
-class Company(models.Model):
-	name = models.CharField(max_length=50)
-	phoneNum = models.IntegerField()
-	address = models.CharField(max_length=255)
-	email = models.EmailField()
-	ticketNum = models.ForeignKey(Booking)
-	def __unicode__(self):
-		return self.name
+
+class CompanyAdmin(admin.ModelAdmin):
+	inlines = [TicketInline]
+
 
 class Route(models.Model):
 	companyName = models.CharField(max_length=50)
@@ -48,13 +53,12 @@ class Route(models.Model):
 	def __unicode__(self):
 		pass
 
-class CompanyAdmin(models.Model):
+class Company_admin(models.Model):
 	username = models.CharField(max_length=10)
 	password = models.CharField(max_length=15)
 	fName = models.CharField(max_length=20)
 	sName = models.CharField(max_length=25)
 	def __unicode__(self):
 		pass
-
 admin.site.register(Booking, BookingAdmin)
 admin.site.register(Ticket)
