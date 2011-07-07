@@ -6,12 +6,9 @@ from django.forms import ModelForm
 from django.views.decorators.csrf import csrf_exempt
 
 def site_list(request):
-	site_list
 	t = loader.get_template('eticket/index.html')
 	c = Context(dict())
 	return HttpResponse(t.render(c))
-
-	return 
 
 def booking _details(request):
 	return
