@@ -1,21 +1,35 @@
 from django.db import models
 from django.contrib import admin
 
-class Booking(models.Model):
-	ticketType = models.CharField(max_length=30)
-	ticketQuantity = models.IntegerField()
-	#ticketNum = models.IntegerField()
-	def __unicode__(self):
-		return self.ticketType
-
 class Company(models.Model):
 	name = models.CharField(max_length=50)
 	phoneNum = models.IntegerField()
 	address = models.CharField(max_length=255)
 	email = models.EmailField()
-	#ticketNum = models.ForeignKey(Ticket)
+	#booking = models.ForeignKey(Booking)
 	def __unicode__(self):
 		return self.name
+
+class Route(models.Model):
+	#companyName = models.CharField(max_length=50)
+	company = models.ForeignKey(Company)
+	departTime = models.DateTimeField()
+	origin = models.CharField(max_length=30)
+	destination = models.CharField(max_length=30)
+	price = models.DecimalField(max_digits=4, decimal_places=2)
+	ticketLeft = models.IntegerField()
+	totalTickets = models.IntegerField()
+	def __unicode__(self):
+		return u'%s-%s, %s, GHS%s'%(self.origin ,self.destination,self.departTime,self.price)
+
+class Booking(models.Model):
+	ticketType = models.CharField(max_length=30)
+	ticketQuantity = models.IntegerField()
+	company = models.ForeignKey(Company)
+	route = models.ForeignKey(Route)
+	#ticketNum = models.IntegerField()
+	def __unicode__(self):
+		return self.ticketType
 
 class Ticket(models.Model):
 	ticketNum = models.IntegerField()
@@ -40,19 +54,6 @@ class Customer(models.Model):
 class CompanyAdmin(admin.ModelAdmin):
 	inlines = [TicketInline]
 
-
-class Route(models.Model):
-	companyName = models.CharField(max_length=50)
-	departTime = models.DateTimeField()
-	origin = models.CharField(max_length=30)
-	destination = models.CharField(max_length=30)
-	price = models.DecimalField(max_digits=4, decimal_places=2)
-	ticketLeft = models.IntegerField()
-	totalTickets = models.IntegerField()
-	ticketNum = models.ForeignKey(Booking)
-	def __unicode__(self):
-		pass
-
 class Company_admin(models.Model):
 	username = models.CharField(max_length=10)
 	password = models.CharField(max_length=15)
@@ -62,3 +63,5 @@ class Company_admin(models.Model):
 		pass
 admin.site.register(Booking, BookingAdmin)
 admin.site.register(Ticket)
+admin.site.register(Company)
+admin.site.register(Route)
