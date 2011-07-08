@@ -12,12 +12,25 @@ def site_list(request):
 
 class RouteForm(ModelForm):
 	class Meta:
-		exclude=['post','author']
+		exclude=['totalTickets','ticketLeft','price','company ']
 		model = Route
 
-#def route_detail(request):
-	#return
+def route_detail(request,id):
+	route = Route.objects.get(pk=id)
+	t = loader.get_template('eticket/route_detail.html')
+        c = Context({'route':route})
+        return HttpResponse(t.render(c))
+	#if request.method="POST":
 
+@csrf_exempt
+def search(request):
+	form = RouteForm()
+	t = loader.get_template('eticket/search.html')
+        c = Context({'form':form.as_p()})
+        return HttpResponse(t.render(c))
+	
+		
+	
 #def booking _details(request):
 
 #def purchase_detail(request):
