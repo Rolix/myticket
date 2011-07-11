@@ -6,7 +6,7 @@
      {% else %}  
       <div>{{ route.company }}</div>
       {{ route.origin }}-{{ route.destination }}
-      <div> Price :GHS {{ route.price }}.00</div> 
+      <div> Price :GH¢ {{ route.price }}.00</div> 
        Ticket Left:{{route.ticketLeft}}
         {{ request.origin }}
       <div><a href='/eticket/purchase/{{route.id}}'>BUY</a></div>

@@ -53,14 +53,16 @@ class CustomerForm(ModelForm):
         model = Customer
 
 def purchase_detail(request,id):
+     route = Route.objects.get(pk=id)
      if request.method =="POST":
             form = CustomerForm(request.POST)
+           
             if form.is_valid():
                form.save()
      else:
             form = CustomerForm()    
      t = loader.get_template('eticket/purchase.html')
-     c = Context({'form':form.as_p()})
+     c = Context({'form':form.as_p(),'route':route})
      return HttpResponse(t.render(c))
      
 	

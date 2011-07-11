@@ -1,6 +1,7 @@
 {# Template for purchase details #}
 {% extends "eticket/base.html" %}
 {% block content %}
+Amount Due: GH¢ {{ route.price }}
 <br />
 	<form method='post' action=".">
 		{{ form }}
