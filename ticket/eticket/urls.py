@@ -7,5 +7,6 @@ urlpatterns = patterns('',
 	url(r'^route/?$', 'eticket.views.route_detail'),
         url(r'^book/?$', 'eticket.views.book_detail'),
         url(r'^purchase/(?P<id>\d+)/?$','eticket.views.purchase_detail'),
-	#url(r'^search/?$', 'eticket.views.search'),
+        url(r'^payment/?$', 'eticket.views.payment'),
+	url(r'^thank/?$', 'eticket.views.message'),
 )
