@@ -16,6 +16,14 @@ TIME_OF_DAY=(
 ('Night','NIGHT'),
 )
 
+NUM_OF_TICKETS=(
+ ('1','1'),
+ ('2','2'),
+ ('3','3'),
+ ('4','4'),
+ ('5','5'),
+)
+
 class Route(models.Model):
 	#companyName = models.CharField(max_length=50)
 	company = models.ForeignKey(Company)
@@ -25,6 +33,7 @@ class Route(models.Model):
 	price = models.DecimalField(max_digits=6, decimal_places=2)
 	ticketLeft = models.IntegerField()
 	totalTickets = models.IntegerField()
+#        numOfTickets = models.CharField(max_length=1, choices=NUM_OF_TICKETS)
 	def __unicode__(self):
 		return u'%s-%s, %s, GHS%s'%(self.origin ,self.destination,self.departTime,self.price)
 
@@ -51,7 +60,9 @@ MODE_OF_PAYMENT=(
                ('mtn','MTN MONEY'),
                ('airtel','AIRTEL MONEY'),
                ('etranzact','eTRANZACT'),
+
             )
+
 
 class Customer(models.Model):
 	fName = models.CharField(max_length=20)
