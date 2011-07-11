@@ -47,12 +47,18 @@ class TicketInline(admin.TabularInline):
 
 class BookingAdmin(admin.ModelAdmin):
 	inlines=[TicketInline]
+MODE_OF_PAYMENT=(
+               ('mtn','MTN MONEY'),
+               ('airtel','AIRTEL MONEY'),
+               ('etranzact','eTRANZACT'),
+            )
 
 class Customer(models.Model):
 	fName = models.CharField(max_length=20)
 	sName = models.CharField(max_length=25)
 	phoneNum = models.IntegerField()
 	ticketNum = models.ForeignKey(Booking)
+        modeOfPayment = models.CharField(max_length=40,choices=MODE_OF_PAYMENT)
 	def __unicode__(self):
 		pass
 
