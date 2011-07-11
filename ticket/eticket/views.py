@@ -30,16 +30,40 @@ def route_detail(request):
 	
 @csrf_exempt			
 def book_detail(request):
-   route = Route.objects.all()
    if request.method == 'POST':
       form = RouteForm(request.POST)
       if form.is_valid():
-          results = Route.objects.filter(form)
-      else:
-         form = RouteForm() 
+           r = Route.objects.filter(origin__icontains=request.POST['origin'])
+           r = r.filter(destination__icontains=request.POST['destination'])
+           routes = r.filter(company=request.POST['company'])
+           if len(routes) == 0:
+             return HttpResponse( 'No such Route')
+#           print 'Company', route.company
+#           print 'Tickets left', route.ticketLeft
+#           assert False
    t = loader.get_template('eticket/book.html')
-   c = Context({'results':results })   
+   c = Context({ 'routes':routes })   
    return HttpResponse(t.render(c)) 
+
+
+
+class CustomerForm(ModelForm):
+   class Meta:
+        exclude = ['ticketNum','fName','sName']
+        model = Customer
+
+def purchase_detail(request,id):
+     if request.method =="POST":
+            form = CustomerForm(request.POST)
+            if form.is_valid():
+               form.save()
+     else:
+            form = CustomerForm()    
+     t = loader.get_template('eticket/purchase.html')
+     c = Context({'form':form.as_p()})
+     return HttpResponse(t.render(c))
+     
+	
 
 #@csrf_exempt
 #def search(request):
@@ -48,8 +72,6 @@ def book_detail(request):
  #       c = Context({'form':form.as_p()})
   #      return HttpResponse(t.render(c))
 
-#def purchase_detail(request):
-	#return 
 
 #def cancel_ticket(request):
 	#return
