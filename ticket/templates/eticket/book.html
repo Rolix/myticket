@@ -1,15 +1,15 @@
 {% extends "eticket/base.html" %}
 {% block content %}
-  {{ results }}
-  {{ route }}
-  {% for rou in route %}
-     {% if results.company == rou.company %}
-       <div>{{ rou.company }}
-     {% endif %}  
-    {{ rou.origin }}-{{ rou.destination }}
-    <div> Price :GHS {{ rou.price }}.00</div> 
-     Ticket Left:{{rou.ticketLeft}}
-     {{ request.origin }}
-     <div><a href='eticket/purchase'>BUY</a></div></div>
+  {% for route in routes %}
+     {% if route == None %}
+        No routes available
+     {% else %}  
+      <div>{{ route.company }}</div>
+      {{ route.origin }}-{{ route.destination }}
+      <div> Price :GHS {{ route.price }}.00</div> 
+       Ticket Left:{{route.ticketLeft}}
+        {{ request.origin }}
+      <div><a href='/eticket/purchase/{{route.id}}'>BUY</a></div>
+     {% endif %}
   {% endfor %} 
 {% endblock %}
