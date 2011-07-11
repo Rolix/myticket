@@ -4,6 +4,7 @@ from models import Route,Customer,Company,Ticket
 from django.template import Context, loader
 from django.forms import ModelForm
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Q
 
 def site_list(request):
 	t = loader.get_template('eticket/index.html')
@@ -15,28 +16,42 @@ class RouteForm(ModelForm):
 		exclude=['totalTickets','ticketLeft','price','company ']
 		model = Route
 
-def route_detail(request,id):
-	route = Route.objects.get(pk=id)
-	t = loader.get_template('eticket/route_detail.html')
-        c = Context({'route':route})
-        return HttpResponse(t.render(c))
-	#if request.method="POST":
-
-@csrf_exempt
-def search(request):
-	form = RouteForm()
-	t = loader.get_template('eticket/search.html')
+def route_detail(request):
+        if request.method =="POST":
+            form = RouteForm(request.POST)
+            if form.is_valid():
+               form.save()
+               return HttpResponseRedirect('')
+        else:
+            form = RouteForm()    
+	t = loader.get_template('eticket/route.html')
         c = Context({'form':form.as_p()})
         return HttpResponse(t.render(c))
 	
-		
-	
-#def booking _details(request):
+@csrf_exempt			
+def book_detail(request):
+   route = Route.objects.all()
+   if request.method == 'POST':
+      form = RouteForm(request.POST)
+      if form.is_valid():
+          results = Route.objects.filter(form)
+      else:
+         form = RouteForm() 
+   t = loader.get_template('eticket/book.html')
+   c = Context({'results':results })   
+   return HttpResponse(t.render(c)) 
+
+#@csrf_exempt
+#def search(request):
+#	form = RouteForm()
+#	t = loader.get_template('eticket/search.html')
+ #       c = Context({'form':form.as_p()})
+  #      return HttpResponse(t.render(c))
 
 #def purchase_detail(request):
 	#return 
 
-#def cancell_ticket(request):
+#def cancel_ticket(request):
 	#return
 
 #def events(request):

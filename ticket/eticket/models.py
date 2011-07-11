@@ -10,13 +10,19 @@ class Company(models.Model):
 	def __unicode__(self):
 		return self.name
 
+TIME_OF_DAY=(
+('Morning','MORNING'),
+('Afternoon','AFTERNOON'),
+('Night','NIGHT'),
+)
+
 class Route(models.Model):
 	#companyName = models.CharField(max_length=50)
 	company = models.ForeignKey(Company)
-	departTime = models.DateTimeField()
+	departTime = models.CharField(max_length=40,choices=TIME_OF_DAY )
 	origin = models.CharField(max_length=30)
 	destination = models.CharField(max_length=30)
-	price = models.DecimalField(max_digits=4, decimal_places=2)
+	price = models.DecimalField(max_digits=6, decimal_places=2)
 	ticketLeft = models.IntegerField()
 	totalTickets = models.IntegerField()
 	def __unicode__(self):
