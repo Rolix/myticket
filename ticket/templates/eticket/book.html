@@ -1,4 +1,15 @@
-{# Template for booking bus #}
 {% extends "eticket/base.html" %}
 {% block content %}
+  {{ results }}
+  {{ route }}
+  {% for rou in route %}
+     {% if results.company == rou.company %}
+       <div>{{ rou.company }}
+     {% endif %}  
+    {{ rou.origin }}-{{ rou.destination }}
+    <div> Price :GHS {{ rou.price }}.00</div> 
+     Ticket Left:{{rou.ticketLeft}}
+     {{ request.origin }}
+     <div><a href='eticket/purchase'>BUY</a></div></div>
+  {% endfor %} 
 {% endblock %}
