@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
      url(r'^admin/', include(admin.site.urls)),
      url(r'^eticket/',include('ticket.eticket.urls')),
+     url(r'^reg/',include('ticket.reg.urls')),	
 )
