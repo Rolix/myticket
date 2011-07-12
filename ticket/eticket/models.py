@@ -73,6 +73,17 @@ class Customer(models.Model):
 	def __unicode__(self):
 		pass
 
+class CustomerBookings(models.Model):
+       comp = models.CharField(max_length=20)
+       cusFrom = models.CharField(max_length=20)
+       cusTo = models.CharField(max_length=20)
+       cusPhone = models.IntegerField()
+       amt = models.DecimalField(max_digits=6, decimal_places=2)
+       ticketsbougth = models.IntegerField()
+       cusTicketID = models.IntegerField()
+       def __unicode__(self):
+           pass
+
 
 class CompanyAdmin(admin.ModelAdmin):
 	inlines = [TicketInline]

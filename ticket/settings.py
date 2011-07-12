@@ -103,7 +103,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'ticket.urls'
 
 TEMPLATE_DIRS = (
-       "/home/rolix/Desktop/myticket/ticket/templates"
+       "/home/sel/Desktop/myticket/ticket/templates"
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -119,7 +119,6 @@ INSTALLED_APPS = (
     'eticket',
     'reg',
     'django.contrib.admin',
-     'django_evolution',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

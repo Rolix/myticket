@@ -1,5 +1,9 @@
 {% extends "eticket/base.html" %}
 {% block content %}
    Your transaction is being processed</br>
-  You'll soon receive an sms confirmation with ticket details.
+   You'll soon receive an sms confirmation with ticket details.</br>
+   --------------------------------------------------------------------</br>
+   THE SMS </br>
+   Route: {{ customerbookings.cusFrom }}-{{ customerbookings.cusTo }}</br>
+   Your unique Ticket ID :{{customerbookings.cusTicketID}}
 {% endblock %}
