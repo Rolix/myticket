@@ -158,8 +158,8 @@ def confirmCancel(request):
      #ticketdet =  ticketdet.filter(cusPhone__iexact=fone).filter(cusTicketID__iexact=tickId) 
      #if len(ticketdet) == 0:
      # return HttpResponseRedirect(request.path)
-   else:      
-      return HttpResponse('Invalid Submission') 
+   else:
+      return HttpResponse('Invalid Submission')
    t = loader.get_template('eticket/confirmCancel.html')
    c = Context({})
    return HttpResponse(t.render(c))
