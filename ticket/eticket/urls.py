@@ -11,4 +11,6 @@ urlpatterns = patterns('',
 	url(r'^thank/?$', 'eticket.views.message'),
         url(r'^cancel/?$', 'eticket.views.cancel_ticket'),
         url(r'^confirmCancel/?$', 'eticket.views.confirmCancel'),
+	url(r'^company/?$', 'eticket.views.company_page'),
+	url(r'^bookings/?$', 'eticket.views.bookings'),
 )

@@ -11,14 +11,17 @@ class LoginForm(forms.Form):
 
 @csrf_exempt
 def loginView(request):
+	
 	if request.method == 'POST':
 		uname = request.POST['username']
 		passwd= request.POST['password']
 		user = authenticate(username=uname,password=passwd)
+				
 		if user is not None:
+			print user.id
 			if user.is_active:
 				login(request,user)
-				t = loader.get_template('eticket/base.html')
+				t = loader.get_template('eticket/companyindex.html')
 				c = Context(dict())
 				return HttpResponse(t.render(c))
 		else:

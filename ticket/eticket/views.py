@@ -166,6 +166,26 @@ def confirmCancel(request):
 
 
 
+   t = loader.get_template('eticket/confirmCancel.html')
+   c = Context({})
+   return HttpResponse(t.render(c))
 
+@csrf_exempt
+def company_page(request):
+	t = loader.get_template('eticket/companyindex.html')
+	c = Context(dict())
+	return HttpResponse(t.render(c))  
 
-	
+class CustomerBookingsForm(ModelForm):
+   class Meta:
+        model = CustomerBookings
+
+def bookings(request):
+	book_list = CustomerBookings.objects.all()
+	#if book_list.comp = request.user.username:
+	#blog_list = Blog.objects.all()
+	t = loader.get_template('eticket/bookings.html')
+	c = Context ({'book_list':book_list})
+	return HttpResponse(t.render(c))
+		
+		
