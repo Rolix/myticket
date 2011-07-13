@@ -137,18 +137,29 @@ def cancel_ticket(request):
      c = Context({'form':form.as_p()})
      return HttpResponse(t.render(c))
 
-
+@csrf_exempt
 def confirmCancel(request):
    ticketdet = CustomerBookings.objects.all()
+   my = CustomerBookings.objects.all()
    if request.method == 'POST':
       form = CancelForm(request.POST)
       if form.is_valid():
          fone = form.cleaned_data['fone']
          tickId = form.cleaned_data['tickId']
-     t = loader.get_template('eticket/confirmCancel.html')
-     c = Context({})
-     return HttpResponse(t.render(c))
-
+         ticketdet =  ticketdet.filter(cusPhone__iexact=fone).filter(cusTicketID__iexact=tickId) 
+         if len(ticketdet) == 0:
+              return HttpResponseRedirect(request.path)
+         ticket.is_cancelled = True
+         t = loader.get_template('eticket/confirmCancel.html')
+         c = Context({'fone':fone, 'tickId':tickId, 'tickdet':ticketdet, 'my':my})
+         return HttpResponse(t.render(c))
+      else:
+         return HttpResponse('Invalid form Submision')     
+     #ticketdet =  ticketdet.filter(cusPhone__iexact=fone).filter(cusTicketID__iexact=tickId) 
+     #if len(ticketdet) == 0:
+     # return HttpResponseRedirect(request.path)
+   else:
+      return HttpResponse('Invalid Submission') 
   
 
 
