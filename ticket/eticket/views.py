@@ -159,11 +159,7 @@ def confirmCancel(request):
      #if len(ticketdet) == 0:
      # return HttpResponseRedirect(request.path)
    else:
-<<<<<<< Updated upstream
       return HttpResponse('Invalid Submission') 
-=======
-      return HttpResponse('Invalid Submission')
->>>>>>> Stashed changes
    t = loader.get_template('eticket/confirmCancel.html')
    c = Context({})
    return HttpResponse(t.render(c))
