@@ -138,5 +138,23 @@ def cancel_ticket(request):
      return HttpResponse(t.render(c))
 
 
-#def event_detail():
-	#return
+def confirmCancel(request):
+   ticketdet = CustomerBookings.objects.all()
+   if request.method == 'POST':
+      form = CancelForm(request.POST)
+      if form.is_valid():
+         fone = form.cleaned_data['fone']
+         tickId = form.cleaned_data['tickId']
+     t = loader.get_template('eticket/confirmCancel.html')
+     c = Context({})
+     return HttpResponse(t.render(c))
+
+  
+
+
+
+
+
+
+
+	
