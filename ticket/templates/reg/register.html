@@ -1,0 +1,37 @@
+<a>Enter Details Below</a>
+<form action="/reg/login/" method="post">
+{% if form.non_field_errors %}
+<p><span class="error">
+{{ form.non_field_errors|join:", " }}
+</span></p>
+{% endif %}
+<p>{% if form.username.errors %}
+<span class="error">{{ form.username.errors|join:", " }}</span>
+{% endif %}</p>
+<p><label for="id_username">Username:</label>
+{{ form.username }}</p>
+<p>{% if form.email.errors %}
+<span class="error">
+{{ form.email.errors|join:", " }}
+</span>
+{% endif %}</p>
+<p><label for="id_name">Your e-mail address:</label>
+{{ form.email }}</p>
+<p>{% if form.password1.errors %}
+<span class="error">
+{{ form.passsword1.errors|join:", " }}
+</span>
+{% endif %}</p>
+<p><label for="id_password1">Password:</label>
+{{ form.password1 }}</p>
+<p>{% if form.password2.errors %}
+<span class="error">
+{{ form.passsword2.errors|join:", " }}
+</span>
+{% endif %}</p>
+<p><label for="id_password2">Password (again, to catch
+typos): </label>
+{{ form.password2 }}</p>
+<p><input type="submit" value="Submit"></p>
+
+</form>

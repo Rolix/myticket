@@ -1,0 +1,16 @@
+{% extends "eticket/base.html" %}
+{% block content %}
+  {% for i in booking_list %}
+     {% if i == None %}
+        No Bookings available
+     {% else %}  
+      <div>{{ i.cusFrom }}</div>
+      {{ i.origin }}-{{ i.cusTo }}
+      <div> Phone Number :{{ i.cusPhone }}.00</div> 
+       Ticket Left:GH¢ {{route.amt}}</br>
+         Number of Tickets :{{route.ticketsbougth}}
+	Ticket Number:{{route.cusTicketID}}
+	Depart Time:{{route.depart}}
+     {% endif %}
+  {% endfor %} 
+{% endblock %}
