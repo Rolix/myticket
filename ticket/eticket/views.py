@@ -8,6 +8,7 @@ from django.db.models import Q
 from django import forms
 import random, datetime
 
+
 def site_list(request):
 	t = loader.get_template('eticket/index.html')
 	c = Context(dict())
@@ -125,9 +126,16 @@ def message(request):
         return HttpResponse(t.render(c))
 
 
+class CancelForm(forms.Form):
+     fone = forms.IntegerField()
+     tickId = forms.IntegerField()
+
+@csrf_exempt
 def cancel_ticket(request):
-     
-     return HttpResponse('WElcome to ticket cancelation')
+     form = CancelForm()
+     t = loader.get_template('eticket/cancel.html')
+     c = Context({'form':form.as_p()})
+     return HttpResponse(t.render(c))
 
 
 #def event_detail():
