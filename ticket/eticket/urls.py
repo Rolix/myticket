@@ -13,4 +13,6 @@ urlpatterns = patterns('',
         url(r'^confirmCancel/?$', 'eticket.views.confirmCancel'),
 	url(r'^company/?$', 'eticket.views.company_page'),
 	url(r'^bookings/?$', 'eticket.views.bookings'),
+	url(r'^valid/?$', 'eticket.views.validate_ticket'),
+	url(r'^validresult/?$', 'eticket.views.confirmValidation'),
 )

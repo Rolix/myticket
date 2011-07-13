@@ -1,0 +1,13 @@
+{% extends "eticket/base.html" %}
+{% block content %}
+  {#0{{fone}}</br>#}
+  {#{{tickId}}</br>#}
+  Your Ticket details are:</br>
+  {% for det in ticketdet %}
+    Company: {{ det.comp}}</br>
+    Amount Paid:GH¢ {{det.amt}}.00</br>
+    Route: {{det.cusFrom}}-{{det.cusTo}}</br>
+  {% endfor %}
+  You'll will soon  receive an sms confirming your refund</br>
+  -------------------------------------------------------------</br>
+{% endblock %}

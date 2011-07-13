@@ -84,6 +84,7 @@ class CustomerBookings(models.Model):
        cusTicketID = models.IntegerField()
        depart = models.TimeField()
        is_cancelled = models.BooleanField(default=False)
+       is_valid = models.BooleanField(default=False)
        def __unicode__(self):
            return u'%s-%s, %s, %s, %s'%(self.comp ,self.cusFrom, self.cusTo, self.cusPhone, self.cusTicketID )
 

@@ -159,10 +159,15 @@ def confirmCancel(request):
      #if len(ticketdet) == 0:
      # return HttpResponseRedirect(request.path)
    else:
+<<<<<<< Updated upstream
       return HttpResponse('Invalid Submission') 
+=======
+      return HttpResponse('Invalid Submission')
+>>>>>>> Stashed changes
    t = loader.get_template('eticket/confirmCancel.html')
    c = Context({})
    return HttpResponse(t.render(c))
+
 
 @csrf_exempt
 def company_page(request):
@@ -176,10 +181,41 @@ class CustomerBookingsForm(ModelForm):
 
 def bookings(request):
 	book_list = CustomerBookings.objects.all()
-	#if book_list.comp = request.user.username:
-	#blog_list = Blog.objects.all()
 	t = loader.get_template('eticket/bookings.html')
 	c = Context ({'book_list':book_list})
 	return HttpResponse(t.render(c))
-		
-		
+
+class ValidationForm(forms.Form):
+     fone = forms.IntegerField()
+     tickId = forms.IntegerField()
+
+@csrf_exempt
+def confirmValidation(request):
+   ticketdet = CustomerBookings.objects.all()
+   my = CustomerBookings.objects.all()
+   if request.method == 'POST':
+      form = ValidationForm(request.POST)
+      if form.is_valid():
+         fone = form.cleaned_data['fone']
+         tickId = form.cleaned_data['tickId']
+         ticketdet =  ticketdet.filter(cusPhone__iexact=fone).filter(cusTicketID__iexact=tickId) 
+         if len(ticketdet) == 0:
+              return HttpResponseRedirect(request.path)
+         ticketdet.is_valid = True
+         t = loader.get_template('eticket/confirmValid.html')
+         c = Context({'fone':fone, 'tickId':tickId, 'ticketdet':ticketdet, 'my':my})
+         return HttpResponse(t.render(c))
+      else:
+         return HttpResponse('Invalid Booking Form')     
+   else:
+      return HttpResponse('Invalid Submission')
+   t = loader.get_template('eticket/confirmValid.html')
+   c = Context({})
+   return HttpResponse(t.render(c))
+
+@csrf_exempt
+def validate_ticket(request):
+     form = CancelForm()
+     t = loader.get_template('eticket/valid.html')
+     c = Context({'form':form.as_p()})
+     return HttpResponse(t.render(c))
