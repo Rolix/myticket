@@ -33,6 +33,7 @@ class Route(models.Model):
 	price = models.DecimalField(max_digits=6, decimal_places=2)
 	ticketLeft = models.IntegerField()
 	totalTickets = models.IntegerField()
+        timeOfDay = models.TimeField()
 #        numOfTickets = models.CharField(max_length=1, choices=NUM_OF_TICKETS)
 	def __unicode__(self):
 		return u'%s-%s, %s, GHS%s'%(self.origin ,self.destination,self.departTime,self.price)
@@ -42,7 +43,7 @@ class Booking(models.Model):
 	ticketQuantity = models.IntegerField()
 	company = models.ForeignKey(Company)
 	route = models.ForeignKey(Route)
-	#ticketNum = models.IntegerField()
+	#ticketNum = models.IntegerField()Quajo
 	def __unicode__(self):
 		return self.ticketType
 

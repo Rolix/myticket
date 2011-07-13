@@ -7,7 +7,8 @@
       <div>{{ route.company }}</div>
       {{ route.origin }}-{{ route.destination }}
       <div> Price :GH¢ {{ route.price }}.00</div> 
-       Ticket Left:{{route.ticketLeft}}
+       Ticket Left:{{route.ticketLeft}}</br>
+         Departure :{{route.timeOfDay}}
       <div><a href='/eticket/purchase/{{route.id}}'>BUY</a></div>
      {% endif %}
   {% endfor %} 

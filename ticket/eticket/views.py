@@ -15,7 +15,7 @@ def site_list(request):
 class RouteForm(ModelForm):
   	ticketQuantity = forms.IntegerField()
 	class Meta:
-		exclude=['totalTickets','ticketLeft','price','company ']
+		exclude=['totalTickets','ticketLeft','price','company ','timeOfDay']
 		model = Route
 
 def route_detail(request):
