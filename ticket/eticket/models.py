@@ -82,6 +82,7 @@ class CustomerBookings(models.Model):
        amt = models.DecimalField(max_digits=6, decimal_places=2)
        ticketsbougth = models.IntegerField()
        cusTicketID = models.IntegerField()
+       depart = models.TimeField()
        def __unicode__(self):
            pass
 

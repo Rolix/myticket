@@ -9,4 +9,5 @@ urlpatterns = patterns('',
         url(r'^purchase/(?P<id>\d+)/?$','eticket.views.purchase_detail'),
         url(r'^payment/?$', 'eticket.views.payment'),
 	url(r'^thank/?$', 'eticket.views.message'),
+        url(r'^cancel/?$', 'eticket.views.cancel_ticket'),
 )
