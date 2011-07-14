@@ -15,7 +15,7 @@ def site_list(request):
 	return HttpResponse(t.render(c))
 
 class RouteForm(ModelForm):
-  	ticketQuantity = forms.IntegerField()
+  	ticketQuantity = forms.IntegerField(label ="Number Of Tickets")
 	class Meta:
 		exclude=['totalTickets','ticketLeft','price','company ','timeOfDay']
 		model = Route
@@ -127,8 +127,8 @@ def message(request):
 
 
 class CancelForm(forms.Form):
-     fone = forms.IntegerField()
-     tickId = forms.IntegerField()
+     fone = forms.IntegerField(label='Phone Number', help_text="Use puns liberally")
+     tickId = forms.IntegerField(label='Ticket Number')
 
 @csrf_exempt
 def cancel_ticket(request):
@@ -182,8 +182,8 @@ def bookings(request):
 	return HttpResponse(t.render(c))
 
 class ValidationForm(forms.Form):
-     fone = forms.IntegerField()
-     tickId = forms.IntegerField()
+     fone = forms.IntegerField(label='Phone Number')
+     tickId = forms.IntegerField(label='Ticket Number')
 
 @csrf_exempt
 def confirmValidation(request):

@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib import admin
 
 class Company(models.Model):
-	name = models.CharField(max_length=50)
+	name = models.CharField("BUS",max_length=50)
 	phoneNum = models.IntegerField()
 	address = models.CharField(max_length=255)
 	email = models.EmailField()
@@ -17,9 +17,9 @@ TIME_OF_DAY=(
 )
 
 NUM_OF_TICKETS=(
- ('1','1'),
- ('2','2'),
- ('3','3'),
+ ('1','1 ticket'),
+ ('2','2 ticket'),
+ ('3','3 ticket'),
  ('4','4'),
  ('5','5'),
 )
@@ -27,9 +27,9 @@ NUM_OF_TICKETS=(
 class Route(models.Model):
 	#companyName = models.CharField(max_length=50)
 	company = models.ForeignKey(Company)
-	departTime = models.CharField(max_length=40,choices=TIME_OF_DAY )
-	origin = models.CharField(max_length=30)
-	destination = models.CharField(max_length=30)
+	departTime = models.CharField("TIME",max_length=40,choices=TIME_OF_DAY )
+	origin = models.CharField("FROM",max_length=30)
+	destination = models.CharField("TO",max_length=30)
 	price = models.DecimalField(max_digits=6, decimal_places=2)
 	ticketLeft = models.IntegerField()
 	totalTickets = models.IntegerField()
@@ -68,9 +68,9 @@ MODE_OF_PAYMENT=(
 class Customer(models.Model):
 	fName = models.CharField(max_length=20)
 	sName = models.CharField(max_length=25)
-	phoneNum = models.IntegerField()
+	phoneNum = models.IntegerField("PHONE NUMBER",help_text='Enter a valid phone number')
 	ticketNum = models.ForeignKey(Booking)
-        modeOfPayment = models.CharField(max_length=40,choices=MODE_OF_PAYMENT)
+        modeOfPayment = models.CharField("MODE OF PAYMENT",max_length=40,choices=MODE_OF_PAYMENT)
 	def __unicode__(self):
 		pass
 
