@@ -17,6 +17,7 @@ def site_list(request):
 class RouteForm(ModelForm):
 	departDate = forms.DateField(widget = SelectDateWidget(),label = "DATE")
   	ticketQuantity = forms.IntegerField(label ="Number Of Tickets")
+  	ticketQuantity = forms.IntegerField(label ="Number Of Tickets", initial=1)
 	class Meta:
 		exclude=['totalTickets','ticketLeft','price','company ','timeOfDay']
 		model = Route
@@ -105,7 +106,7 @@ class PayForm(forms.Form):
 def payment(request):
       #booking = Booking(ticketType='travel',ticketQuantity=request.POST['ticketQuantity'],company=request.POST['company'])
       if request.method == 'POST':
-         form = PayForm(request.POST)
+         form = PayForm()
          request.session['phoneNum'] = request.POST['phoneNum']
          if form.is_valid():
             form.save()
@@ -128,7 +129,7 @@ def message(request):
 
 
 class CancelForm(forms.Form):
-     fone = forms.IntegerField(label='Phone Number', help_text="Use puns liberally")
+     fone = forms.IntegerField(label='Phone Number')
      tickId = forms.IntegerField(label='Ticket Number')
 
 @csrf_exempt

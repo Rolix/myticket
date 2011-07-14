@@ -68,7 +68,7 @@ MODE_OF_PAYMENT=(
 class Customer(models.Model):
 	fName = models.CharField(max_length=20)
 	sName = models.CharField(max_length=25)
-	phoneNum = models.IntegerField("PHONE NUMBER",help_text='Enter a valid phone number')
+	phoneNum = models.IntegerField("PHONE NUMBER",default='Enter a valid phone number')
 	ticketNum = models.ForeignKey(Booking)
         modeOfPayment = models.CharField("MODE OF PAYMENT",max_length=40,choices=MODE_OF_PAYMENT)
 	def __unicode__(self):
