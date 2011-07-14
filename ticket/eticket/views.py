@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from django import forms
 import random, datetime
-
+from django.forms.extras.widgets import SelectDateWidget
 
 def site_list(request):
 	t = loader.get_template('eticket/index.html')
@@ -15,6 +15,7 @@ def site_list(request):
 	return HttpResponse(t.render(c))
 
 class RouteForm(ModelForm):
+	departDate = forms.DateField(widget = SelectDateWidget(),label = "DATE")
   	ticketQuantity = forms.IntegerField(label ="Number Of Tickets")
 	class Meta:
 		exclude=['totalTickets','ticketLeft','price','company ','timeOfDay']
