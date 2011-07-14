@@ -2,6 +2,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #fffafa;
 }
 
 
@@ -98,6 +99,11 @@ a:link,a:active,a:visited {
     text-align: left;
     text-shadow: 0 -1px 1px #555555;
     width: 100%;
+}
+
+/* todo change this!!!! BAADDDDDD */
+#id_departDate_year {
+display: none;
 }
 
 

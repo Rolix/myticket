@@ -15,7 +15,7 @@ def site_list(request):
 	return HttpResponse(t.render(c))
 
 class RouteForm(ModelForm):
-	departDate = forms.DateField(widget = SelectDateWidget(),label = "DATE")
+	departDate = forms.DateField(widget = SelectDateWidget(), initial=datetime.date.today(), label = "DATE")
   	ticketQuantity = forms.IntegerField(label ="Number Of Tickets")
   	ticketQuantity = forms.IntegerField(label ="Number Of Tickets", initial=1)
 	class Meta:

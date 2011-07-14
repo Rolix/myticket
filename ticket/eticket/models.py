@@ -26,8 +26,8 @@ NUM_OF_TICKETS=(
 
 class Route(models.Model):
 	#companyName = models.CharField(max_length=50)
-	company = models.ForeignKey(Company)
-	departTime = models.CharField("TIME",max_length=40,choices=TIME_OF_DAY )
+	company = models.ForeignKey(Company, blank=False, default=1)
+	departTime = models.CharField("TIME",max_length=40,choices=TIME_OF_DAY, default='Morning', blank=False)
 	origin = models.CharField("FROM",max_length=30)
 	destination = models.CharField("TO",max_length=30)
 	price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -70,7 +70,7 @@ class Customer(models.Model):
 	sName = models.CharField(max_length=25)
 	phoneNum = models.IntegerField("PHONE NUMBER",default='Enter a valid phone number')
 	ticketNum = models.ForeignKey(Booking)
-        modeOfPayment = models.CharField("MODE OF PAYMENT",max_length=40,choices=MODE_OF_PAYMENT)
+        modeOfPayment = models.CharField("MODE OF PAYMENT",max_length=40,choices=MODE_OF_PAYMENT,default='mode', blank=False)
 	def __unicode__(self):
 		pass
 

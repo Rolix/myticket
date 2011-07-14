@@ -4,12 +4,23 @@
      {% if route == None %}
         No routes available
      {% else %}  
-      <div>{{ route.company }}</div>
-      {{ route.origin }}-{{ route.destination }}
-      <div> Price :GH¢ {{ route.price }}.00</div> 
-       Ticket Left:{{route.ticketLeft}}</br>
-         Departure :{{route.timeOfDay}}
-      <div><a href='/eticket/purchase/{{route.id}}'>BUY</a></div>
+<a href='/eticket/purchase/{{route.id}}'>      
+	<div style="border-bottom: 1px solid; color: black">
+	
+	<div style="float: left"><b>{{ route.origin }}-{{ route.destination }}</b></div>
+	
+
+	<div style="float:right">GH¢ {{ route.price }}.00</div>
+
+	<div style="clear: left; float: left">{{ route.company }}</div>
+	 
+	<div style="clear: right; float: right;"># left:{{route.ticketLeft}}</div>
+
+<div style="clear: left; float: left">Departure :{{route.timeOfDay}}</div>
+	<div style="clear: both"></div>
+	      
+	</div>
+</a>
      {% endif %}
   {% endfor %} 
 {% endblock %}
