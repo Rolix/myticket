@@ -2,7 +2,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	background-color: #fffafa;
+
 }
 
 
@@ -20,17 +20,46 @@ div.content {
 
 .prodlink {
     background: -moz-linear-gradient(center top , #FFFFFF 90%, #DDDDDD) repeat scroll 0 0 transparent;
-    border-bottom: 1px solid #DDDDDD;
+    border-bottom: 1px solid #6fd986;
     color: #000000;
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
+    font-family: Helvetica,Arial,sans-serif
     margin-top: 1px;
     opacity: 1;
-    padding: 10px 12px 4px;
+    padding: 20px 20px 10px;
     text-align: left;
+   
+}
+.footbar {
+background: rgb(248,250,249); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(248,250,249,1) 0%, rgba(240,244,243,1) 22%, rgba(237,241,240,1) 33%, rgba(235,239,238,1) 50%, rgba(233,237,237,1) 67%, rgba(221,227,226,1) 82%, rgba(212,212,212,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,250,249,1)), color-stop(22%,rgba(240,244,243,1)), color-stop(33%,rgba(237,241,240,1)), color-stop(50%,rgba(235,239,238,1)), color-stop(67%,rgba(233,237,237,1)), color-stop(82%,rgba(221,227,226,1)), color-stop(100%,rgba(212,212,212,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(248,250,249,1) 0%,rgba(240,244,243,1) 22%,rgba(237,241,240,1) 33%,rgba(235,239,238,1) 50%,rgba(233,237,237,1) 67%,rgba(221,227,226,1) 82%,rgba(212,212,212,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(248,250,249,1) 0%,rgba(240,244,243,1) 22%,rgba(237,241,240,1) 33%,rgba(235,239,238,1) 50%,rgba(233,237,237,1) 67%,rgba(221,227,226,1) 82%,rgba(212,212,212,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, rgba(248,250,249,1) 0%,rgba(240,244,243,1) 22%,rgba(237,241,240,1) 33%,rgba(235,239,238,1) 50%,rgba(233,237,237,1) 67%,rgba(221,227,226,1) 82%,rgba(212,212,212,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8faf9', endColorstr='#d4d4d4',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, rgba(248,250,249,1) 0%,rgba(240,244,243,1) 22%,rgba(237,241,240,1) 33%,rgba(235,239,238,1) 50%,rgba(233,237,237,1) 67%,rgba(221,227,226,1) 82%,rgba(212,212,212,1) 100%); /* W3C */
+text-align: center;
+font-color: gray;
 }
 
+.copyright {
+    color: #666666;
+    display: inline-block;
+}
+
+
+ .ui-corner-top {
+    border-top-left-radius: 0.6em;
+    border-top-right-radius: 0.6em;
+}
+
+.ui-corner-bottom {
+    border-bottom-left-radius: 0.6em;
+    border-bottom-right-radius: 0.6em;
+}
 
 
 
@@ -99,11 +128,180 @@ a:link,a:active,a:visited {
     text-align: left;
     text-shadow: 0 -1px 1px #555555;
     width: 100%;
+    font-family: Helvetica,Arial,sans-serif;
 }
 
 /* todo change this!!!! BAADDDDDD */
 #id_departDate_year {
 display: none;
 }
+#id_company #id_departTime{
+  color: black;
+}
+
+
+/*Vanderbilt*/
+.ui-listview-inset .ui-li {
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+
+.ui-li-divider, .ui-li-static {
+    counter-reset: listnumbering;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0.5em 15px;
+}
+
+.ui-li {
+    border-width: 1px 0 0;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+}
+
+
+.ui-listview, .ui-li {
+    list-style: none outside none;
+    padding: 0;
+}
+
+.ui-btn {
+    cursor: pointer;
+    display: block;
+    /*margin: 0.5em 5px;*/
+    padding: 0;
+    position: relative;
+    text-align: left;
+}
+
+.ui-corner-tl, .ui-corner-tr, .ui-corner-bl, .ui-corner-br, .ui-corner-top, .ui-corner-bottom, .ui-corner-right, .ui-corner-left, .ui-corner-all, .ui-btn-corner-tl, .ui-btn-corner-tr, .ui-btn-corner-bl, .ui-btn-corner-br, .ui-btn-corner-top, .ui-btn-corner-bottom, .ui-btn-corner-right, .ui-btn-corner-left, .ui-btn-corner-all {
+    background-clip: padding-box;
+}
+
+.ui-corner-top {
+    border-top-left-radius: 0.6em;
+    border-top-right-radius: 0.6em;
+}
+
+.ui-bar-a, .ui-bar-a input, .ui-bar-a select, .ui-bar-a textarea, .ui-bar-a button {
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+.ui-bar-a {
+    background: -moz-linear-gradient(center top , #3C3C3C, #111111) repeat scroll 0 0 #111111;
+    border: 1px solid #2A2A2A;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 -1px 1px #000000;
+}
+
+
+.ui-listview, .ui-li {
+    list-style: none outside none;
+}
+
+
+.ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button {
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+.ui-body-b {
+    color: #333333;
+    font-weight: normal;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+
+/*2nd*/
+.ui-btn-icon-right .ui-icon {
+    right: 10px;
+}
+
+.ui-btn-icon-left .ui-icon, .ui-btn-icon-right .ui-icon {
+    margin-top: -9px;
+    position: absolute;
+    top: 50%;
+}
+
+.ui-icon {
+    height: 18px;
+    width: 18px;
+}
+
+.ui-icon-arrow-r {
+    background-position: -108px 0;
+}
+
+.ui-icon {
+    background-image: url("images/icons-36-white.png");
+    background-size: 630px 18px;
+}
+
+
+.ui-icon {
+    background-color: rgba(0, 0, 0, 0.4);
+    background-image: url("http://m.vanderbilt.edu/images/icons-18-white.png");
+    background-repeat: no-repeat;
+    border-radius: 9px 9px 9px 9px;
+}
+
+
+Inherited fromdiv.ui-btn-inner
+.ui-btn-inner {
+    white-space: nowrap;
+}
+
+
+.ui-li {
+    text-align: left;
+}
+
+
+.ui-listview, .ui-li {
+    list-style: none outside none;
+}
+
+
+.ui-btn {
+    cursor: pointer;
+    text-align: left;
+}
+
+
+.ui-btn-up-c, .ui-btn-hover-c, .ui-btn-down-c {
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+
+.ui-btn-up-c {
+    color: #444444;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 1px 1px #F6F6F6;
+}
+
+
+
+.ui-listview, .ui-li {
+    list-style: none outside none;
+}
+
+
+.ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button {
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+.ui-body-b {
+    color: #333333;
+    font-weight: normal;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+
 
 
