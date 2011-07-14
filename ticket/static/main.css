@@ -1,9 +1,103 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
 
 
-#brandheader {
-    background: rgb(152,50,106);
-    background-repeat: repeat-x;
-    height: 60px;
-    text-align: center;
+label {
+display: block;
+}
+
+p {
+	margin: 0px;
+}
+
+div.content {
+	padding: 0px;
+}
+
+.prodlink {
+    background: -moz-linear-gradient(center top , #FFFFFF 90%, #DDDDDD) repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #DDDDDD;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 1px;
+    opacity: 1;
+    padding: 10px 12px 4px;
+    text-align: left;
+}
+
+
+
+
+.topbar {
+	background: url("http://www.kayak.com/mweb/images/bgsprite2.png") repeat
+		scroll 0 -559px transparent;
+	height: 42px;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	z-index: 1;
+	color: #111111;
+	font-size: 19px;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 0 1px 1px #BBBBBB;
+}
+
+
+button {
+	width: 100%;
+	border: 0px solid;
+}
+
+a:link,a:active,a:visited {
+	color: #6FA601;
+	text-decoration: none;
+}
+
+.navtxt {
+    bottom: 6px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
     width: 100%;
 }
+
+.navbtn {
+    cursor: pointer;
+    text-align: left;
+}
+
+.navbtn {
+    background: -moz-linear-gradient(center top , #FFFFFF 50%, #DADADA 80%) repeat scroll 0 0 transparent;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px #BBBBBB, 0 1px 0 #BBBBBB inset;
+    cursor: pointer;
+    height: 30px;
+    padding: 0;
+    position: absolute;
+    /*right: 4px;*/
+    text-align: center;
+    /*top: 6px;*/
+    width: 59px;
+    z-index: 100;
+}
+
+
+
+.fBL {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 9px;
+    text-align: left;
+    text-shadow: 0 -1px 1px #555555;
+    width: 100%;
+}
+
+
